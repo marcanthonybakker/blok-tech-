@@ -1,0 +1,22 @@
+{
+  "name": "seniorenmatch",
+  "version": "1.0.0",
+  "description": "applicatie voor senioren met hobby's om te matchen",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marc Anthony Bakker",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+
+{
+  "scripts": {
+    "precompress": "{{ executes BEFORE the `compress` script }}",
+    "compress": "{{ index.js }}",
+    "postcompress": "{{ executes AFTER `compress` script }}"
+  }
+}
