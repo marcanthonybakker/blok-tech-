@@ -19,7 +19,7 @@
         <article>
             <h2>Nieuw bericht</h2>
             <form>
-
+                <section>
                 <label for="hobby-select"></label>
                 <select name="hobbys" id="hobby-select">
                     <option value="">--Kies een hobby--</option>
@@ -33,25 +33,34 @@
                     <option value="verzamelobjecten">verzamelobjecten</option>
                     <option value="collectie">collectie</option>
                 </select>
+                </section>
 
-                <label for="plaats">Plaats</label>
+                <section>
+                <label for="plaats"></label>
                 <input type="text" id="plaats" name="plaats"><br><br>
-
-                <label for="datum">Datum</label>
+                </section>
+                
+                <section>
+                <label for="datum"></label>
                 <input type="date" id="datum" name="trip-start" value="" min="2023-04-01" max="2024-12-30">
+                </section>
 
+                <section>
                 <label for="beschrijving"></label>
                 <textarea id="beschrijving" name="beschrijving">Schrijf hier jouw beschrijfing</textarea><br><br>
+                </section>
 
-                <label for="avatar">Choose a profile picture:</label>
-
+                <section>
+                <label for="afbeelding"></label>
                 <input type="file" id="afbeelding" name="afbeelding" accept="image/png, image/jpeg">
+                </section>
 
-                <input type="submit" value="Verstuur">
+                <div>
+                    <input type="submit" value="Verstuur">
+                </div>
             </form>
         </article>
     </main>
 
 </body>
-
 </html>
