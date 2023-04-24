@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobby match prototype</title>
+</head>
+
+<body>
+
+    <header>
+    </header>
+
+    <main>
+        <article>
+            <h2>Nieuw bericht</h2>
+            <form>
+
+                <label for="hobby-select"></label>
+                <select name="hobbys" id="hobby-select">
+                    <option value="">--Kies een hobby--</option>
+                    <option value="tuinieren">tuinieren</option>
+                    <option value="reizen">reizen</option>
+                    <option value="fotografie">fotografie</option>
+                    <option value="lezen">lezen</option>
+                    <option value="knutselen">knutselen</option>
+                    <option value="koken">koken</option>
+                    <option value="fitness">fitness</option>
+                    <option value="verzamelobjecten">verzamelobjecten</option>
+                    <option value="collectie">collectie</option>
+                </select>
+
+                <label for="plaats">Plaats</label>
+                <input type="text" id="plaats" name="plaats"><br><br>
+
+                <label for="datum">Datum</label>
+                <input type="date" id="datum" name="trip-start" value="" min="2023-04-01" max="2024-12-30">
+
+                <label for="beschrijving"></label>
+                <textarea id="beschrijving" name="beschrijving">Schrijf hier jouw beschrijfing</textarea><br><br>
+
+                <label for="avatar">Choose a profile picture:</label>
+
+                <input type="file" id="afbeelding" name="afbeelding" accept="image/png, image/jpeg">
+
+                <input type="submit" value="Verstuur">
+            </form>
+        </article>
+    </main>
+
+</body>
+
+</html>
