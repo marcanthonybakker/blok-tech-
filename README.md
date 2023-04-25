@@ -16,6 +16,8 @@ This project has adopted the Microsoft Open Source Code of Conduct. For more inf
 
 ./CODE_OF_CONDUCT.md.
 
+(./CODE_OF_CONDUCT)
+
 ## License
 
 Copyright (c) Marc Bakker. All rights reserved.
