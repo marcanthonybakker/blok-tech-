@@ -1,9 +1,14 @@
 # blok-tech-
 Marc Bakker blok tech repository
 
-<<<<<<< HEAD
-Hallo git
-=======
-Hallo, ik ben bezig met de GitHub Hello World opdracht.
+## Over het project
 
-Twee oefening met branches 
+## Project naam
+
+## Code of Conduct
+
+## License
+
+Copyright (c) Marc Bakker. All rights reserved.
+
+Licensed under the MIT license.
