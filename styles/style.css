@@ -30,8 +30,7 @@ button, summary {
     --secondary: #ffffff;
     --tertiary: #457b9d;
     --font: #000000;
-    --bg: #f1faee;
-
+    --bg: #457b9d;
 }
 
 /**************/
@@ -56,14 +55,20 @@ label, select, select, input, textarea, input[type="file"]{
 /**************/
 /* Main */
 /**************/
-main h1, main h2 {
+
+main h1, main h2, legend {
     color: var(--tertiary);
-    font-size: 2em;
+    font-size: 1.5em;
+    margin-top: 0.5em;
 }
 
 main {
     display: flex;
     justify-content: center;
+}
+
+fieldset {
+    border-style: none;
 }
 
 main article:first-of-type {
@@ -73,7 +78,9 @@ main article:first-of-type {
 }
 
 main section {
-    margin: 1em 0em 0em 0em;
+    margin: 2em 0em 0em 0em;
+    display: flex;
+    flex-direction: column;
 }
 
 main h2 {
@@ -93,3 +100,16 @@ main div {
 /**************/
 /* Footer */
 /**************/
+
+/**************/
+/* Error message */
+/**************/
+
+/* .error-field {
+    border: 1px solid red;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  } */
