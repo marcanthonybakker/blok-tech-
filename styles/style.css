@@ -1,4 +1,4 @@
-/**************/
+/* *************/
 /* Font */
 /**************/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -15,6 +15,7 @@
   font-family: 'poppings', sans-serif;
   margin: 0;
   padding: 0;
+  border-style: none;
 }
 
 button, summary {
@@ -26,11 +27,13 @@ button, summary {
 /**************/
 
 :root {
-    --main: #457b9d;
-    --secondary: #ffffff;
-    --tertiary: #457b9d;
-    --font: #000000;
-    --bg: #457b9d;
+    --main: #0A2232;
+    --secondary: #0A2232;
+    --tertiary: #0A2232;
+    --knop: #47989B;
+    --font: #E1EEE7;
+    --bg: #E1EEE7;
+    --white: #FFFFFF;
 }
 
 /**************/
@@ -57,7 +60,7 @@ label, select, select, input, textarea, input[type="file"]{
 /**************/
 
 main h1, main h2, legend {
-    color: var(--tertiary);
+    color: var(--font);
     font-size: 1.5em;
     margin-top: 0.5em;
 }
@@ -67,14 +70,22 @@ main {
     justify-content: center;
 }
 
+main legend {
+    font-weight: 800;
+}
+
+main label{
+    margin-bottom: 0.5em;
+}
+
 fieldset {
     border-style: none;
 }
 
 main article:first-of-type {
     background-color: var(--secondary);
-    border-radius: 2em;
-    margin: 2em;
+    border-radius: 0em 0em 2em 2em;
+    margin: 0em 2em 2em 2em;
 }
 
 main section {
@@ -96,6 +107,58 @@ main div {
     display: flex;
     align-items: center;
 }
+
+main textarea {
+    border-radius: 2em;
+    padding: 0.5em;
+    color: var(--tertiary);
+    
+}
+
+main div:last-of-type {
+    display: flex;
+    justify-content: center;
+}
+
+main div:last-of-type>input {
+    border-radius: 2em;
+    padding: 0.5em 2em 0.5em 2em;
+    color: var(--font);
+    background-color: var(--knop);
+    border-style: none;
+    font-weight: 600;
+}
+
+input[type="file"] {
+    color: var(--knop);
+}
+
+select {
+    color: var(--knop);
+    border-radius: 2em;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+input[type="text"], input[type=date] {
+    border-radius: 2em;
+    padding: 0.5em 1em 0.5em 1em;
+    color: var(--knop);
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border-radius: 2em;
+    padding: 0.5em 1em 0.5em 1em;
+    background-color: var(--knop);
+    color: var(--font);
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+
 
 /**************/
 /* Footer */
