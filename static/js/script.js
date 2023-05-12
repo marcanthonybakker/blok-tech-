@@ -3,8 +3,10 @@ console.log("script.js geladen");
 
 // Event listeners voor het formulier
 
-const inputSelect = document.querySelector(".hobby");
+const inputPlaats = document.querySelector(".inputPlaats"); 
 
-inputSelect.addEventListener("onClick", () => {
-    console.log("Input veranderd");
-  });
+console.log(inputPlaats);
+
+inputPlaats.addEventListener('click', () => {
+    console.log("yes");
+});

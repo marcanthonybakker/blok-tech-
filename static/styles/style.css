@@ -144,7 +144,7 @@ header a:first-of-type {
 }
 
 .form main textarea {
-    border-radius: 2em;
+    border-radius: 1em;
     padding: 0.5em;
     color: var(--main);
     
