@@ -10,10 +10,22 @@ app.use(express.static('static'));
 
 // Formulier pagina https link
 app.get('/', (req, res) => {
-  res.render('form');
+  res.render('form.ejs');
+});
+
+// Berichten pagina https link
+app.get('/berichten', (req, res) => {
+  res.render('berichten.ejs');
 });
 
 // Server open zetten op port 3000
 app.listen(3000, () => {
   console.log("Server aan op port 3000");
+});
+
+// Error 404 missende pagina/icorrect pad
+app.use(function (req, res) {
+  res.status(404);
+
+  res.render('error.ejs');
 });

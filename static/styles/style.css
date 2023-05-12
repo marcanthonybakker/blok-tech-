@@ -63,17 +63,27 @@ label, select, select, input, textarea, input[type="file"]{
 
 header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    justify-items: baseline;
     background-color: var(--main);
     padding: 1em 2em 1em 2em;
+    border-bottom: var(--knop) solid 4px;
 }
 
 header a {
-    color: var(--knop);
+    color: var(--font);
     text-decoration: none;
     font-size: 1.5em;
-    font-weight: 800;
+    font-weight: 600;
+}
+
+header img {
+    width: 2em;
+    margin-bottom: -0.45em;
+}
+
+header a:first-of-type {
+    margin-right: 1em;
 }
 
 
@@ -84,68 +94,68 @@ header a {
 /* Main */
 /**************/
 
-main h1, main h2, legend {
+.form main h1, main h2, legend {
     color: var(--font);
     font-size: 1.5em;
     margin-top: 0.5em;
 }
 
-main {
+.form main {
     display: flex;
     justify-content: center;
 }
 
-main legend {
+.form main article {
+    width: 50em;
+}
+
+.form main legend {
     font-weight: 800;
 }
 
-main label{
+.form main label{
     margin-bottom: 0.5em;
 }
 
-fieldset {
+.form fieldset {
     border-style: none;
 }
 
-main article:first-of-type {
+.form main article:first-of-type {
     background-color: var(--main);
     border-radius: 0em 0em 2em 2em;
-    margin: 0em 2em 2em 2em;
+    margin: 0em 2em 10em 2em;
 }
 
-main section {
+.form main section {
     margin: 2em 0em 0em 0em;
     display: flex;
     flex-direction: column;
 }
 
-main h2 {
-    margin: 1em 0em 0em 1em;
-}
-
-main form {
+.form main form {
     margin: 2em 2em 2.5em 2em;
 }
 
-main div {
+.form main div {
     margin-top: 2em;
     display: flex;
     align-items: center;
 }
 
-main textarea {
+.form main textarea {
     border-radius: 2em;
     padding: 0.5em;
     color: var(--main);
     
 }
 
-main div:last-of-type {
+.form main div:last-of-type {
     display: flex;
     justify-content: center;
 }
 
-main div:last-of-type>input {
+.form main div:last-of-type>input {
     border-radius: 2em;
     padding: 0.5em 2em 0.5em 2em;
     color: var(--font);
@@ -154,25 +164,26 @@ main div:last-of-type>input {
     font-weight: 600;
 }
 
-input[type="file"] {
+.form input[type="file"] {
     color: var(--knop);
 }
 
-select {
+.form select {
     color: var(--knop);
     border-radius: 2em;
     padding: 0.5em 1em 0.5em 1em;
 }
 
-input[type="text"], input[type=date] {
+.form input[type="text"], input[type=date] {
     border-radius: 2em;
     padding: 0.5em 1em 0.5em 1em;
     color: var(--knop);
 }
 
-input[type="file"] {
+.form input[type="file"] {
     display: none;
 }
+
 .custom-file-upload {
     border-radius: 2em;
     padding: 0.5em 1em 0.5em 1em;
@@ -191,8 +202,78 @@ input[type="file"] {
 /* Footer */
 /**************/
 
+footer {
+    background-color: var(--knop);
+    padding: 1em 2em 1em 2em;
+}
+
+footer ul {
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    gap: 1em;
+    color: var(--main);
+}
 
 
+
+
+
+/**************/
+/* Error Pagina */
+/**************/
+
+.errorPagina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.errorPagina h1 {
+    font-size: 8em;
+    color: var(--main);
+}
+
+.errorPagina p {
+    color: var(--main);
+    font-size: 2em;
+}
+
+.errorPagina a {
+    margin-top: 2em;
+    border-radius: 2em;
+    padding: 0.5em 1em 0.5em 1em;
+    background-color: var(--white);
+    color: var(--knop);
+    text-decoration: none;
+    font-size: 2em;
+}
+
+
+
+
+
+/**************/
+/* berichten */
+/**************/
+
+/* .berichten>main {
+    flex-direction: 
+} */
+
+.berichten main>article {
+    background-color: var(--main);
+    border-radius: 2em;
+    margin: 2em 2em 10em 2em;
+    width: 30em;
+}
+
+.berichten>main h1 {
+    margin-left: 1em;
+    color: var(--main);
+}
 
 
 /**************/
