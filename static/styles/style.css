@@ -36,6 +36,7 @@ button, summary {
     --font: #E1EEE7;
     --bg: #E1EEE7;
     --white: #FFFFFF;
+    --green: #00d42e;
 }
 
 /**************/
@@ -146,8 +147,7 @@ header a:first-of-type {
 .form main textarea {
     border-radius: 1em;
     padding: 0.5em;
-    color: var(--main);
-    
+    color: var(--main); 
 }
 
 .form main div:last-of-type {
@@ -259,10 +259,6 @@ footer ul {
 /* berichten */
 /**************/
 
-/* .berichten>main {
-    flex-direction: 
-} */
-
 .berichten main>article {
     background-color: var(--main);
     border-radius: 2em;
@@ -276,15 +272,18 @@ footer ul {
 }
 
 
+
+
+
+
 /**************/
-/* Error message */
+/* ingevuld & uit */
 /**************/
 
-/* .error-field {
-    border: 1px solid red;
-  }
-  
-  .error {
-    color: red;
-    font-size: 12px;
-  } */
+.ingevuld {
+    border: var(--green) solid 4px;;
+}
+
+.uit {
+    display: none;
+}

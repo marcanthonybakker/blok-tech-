@@ -21,7 +21,7 @@
                     </legend>
                     <section>
                         <label for="hobby-select">1. Hobby:</label>
-                        <select name="hobbys" id="hobby-select">
+                        <select class="" name="hobbys" id="hobby-select">
                             <option value="">--Kies een hobby--</option>
                             <option value="tuinieren">tuinieren</option>
                             <option value="reizen">reizen</option>
@@ -35,29 +35,29 @@
                         </select>
                     </section>
 
-                    <section class="inputPlaats">
-                        <label for="plaats">2. Plaats:</label>
-                        <input type="text" id="plaats" name="plaats">
+                    <section>
+                        <label for="">2. Plaats:</label>
+                        <input class="" type="text" id="plaats" name="plaats">
                     </section>
 
                     <section>
                         <label for="datum">3. Datum:</label>
-                        <input type="date" id="datum" name="trip-start" value="" min="2023-04-01" max="2024-12-30">
+                        <input class="" type="date" id="datum" name="trip-start" value="" min="2023-04-01" max="2024-12-30">
                     </section>
 
                     <section>
                         <label for="beschrijving">4. Beschrijving:</label>
-                        <textarea id="beschrijving"
-                        name="beschrijving">Schrijf hier jouw beschrijfing</textarea>
+                        <textarea class="" id="beschrijving"
+                        name="beschrijving">Schrijf hier iets over jouw activiteit</textarea>
                     </section>
 
-                    <section>
+                    <!-- <section>
                         <label for="afbeelding" class="custom-file-upload">5. Afbeelding:</label>
                         <input type="file" id="afbeelding" name="afbeelding" accept="image/png, image/jpeg">
-                    </section>
+                    </section> -->
 
                     <div>
-                        <input type="submit" value="Verstuur">
+                        <input class="" type="submit" value="Verstuur">
                     </div>
 
                 </fieldset>
@@ -68,6 +68,8 @@
     <footer>
         <%- include('partials/footer.ejs') %>
     </footer>
+
+    <script src="js/script.js"></script>
 
 </body>
 
