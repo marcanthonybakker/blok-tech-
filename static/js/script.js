@@ -28,7 +28,7 @@ if (hobbyAan == false && plaatsAan == false && datumsAan == false && beschrijvin
 
 function checkSubmitButton() {
     if (hobbyAan && plaatsAan && datumsAan && beschrijvingAan) {
-      console.log("submit uit");
+      console.log("submit aan");
       submitButton.classList.remove('uit');
     }
   }
