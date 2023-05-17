@@ -21,7 +21,7 @@
                     </legend>
                     <section>
                         <label for="hobby-select">1. Hobby:</label>
-                        <select class="" name="hobbys" id="hobby-select">
+                        <select class="" name="hobbys" id="hobby-select" required>
                             <option value="">--Kies een hobby--</option>
                             <option value="tuinieren">tuinieren</option>
                             <option value="reizen">reizen</option>
@@ -37,18 +37,18 @@
 
                     <section>
                         <label for="">2. Plaats:</label>
-                        <input class="" type="text" id="plaats" name="plaats">
+                        <input class="" type="text" id="plaats" name="plaats" required>
                     </section>
 
                     <section>
                         <label for="datum">3. Datum:</label>
-                        <input class="" type="date" id="datum" name="trip-start" value="" min="2023-04-01" max="2024-12-30">
+                        <input class="" type="date" id="datum" name="trip-start" value="" min="2023-04-01" max="2024-12-30" required>
                     </section>
 
                     <section>
                         <label for="beschrijving">4. Beschrijving:</label>
                         <textarea class="" id="beschrijving"
-                        name="beschrijving">Schrijf hier iets over jouw activiteit</textarea>
+                        name="beschrijving">Schrijf hier iets over jouw activiteit</textarea required>
                     </section>
 
                     <!-- <section>
