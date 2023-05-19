@@ -184,15 +184,14 @@ header a:first-of-type {
     display: none;
 }
 
-.custom-file-upload {
+.form button {
+    color: var(--white);
+    background-color: var(--knop);
     border-radius: 2em;
+    margin-top: 1em;
     padding: 0.5em 1em 0.5em 1em;
-    background-color: var(--white);
-    color: var(--knop);
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
 }
+
 
 
 

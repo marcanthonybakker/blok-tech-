@@ -19,8 +19,15 @@
                     <legend>
                         UITNODIGING
                     </legend>
+
                     <section>
-                        <label for="hobby-select">1. Hobby:</label>
+                        <label for="">1. Plaats:</label>
+                        <input type="text" id="plaats" placeholder="Jouw adres" readonly required>
+                        <button class=""id="getLocationBtn">Gebrijk huidige locatie</button>
+                    </section>
+
+                    <section>
+                        <label for="hobby-select">2. Hobby:</label>
                         <select class="" name="hobbys" id="hobby-select" required>
                             <option value="">--Kies een hobby--</option>
                             <option value="tuinieren">tuinieren</option>
@@ -33,11 +40,6 @@
                             <option value="verzamelobjecten">verzamelobjecten</option>
                             <option value="collectie">collectie</option>
                         </select>
-                    </section>
-
-                    <section>
-                        <label for="">2. Plaats:</label>
-                        <input class="" type="text" id="plaats" name="plaats" required>
                     </section>
 
                     <section>
