@@ -11,7 +11,7 @@ function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
   } else {
-    resultElement.value = 'Geolocation is not supported by this browser.';
+    resultElement.value = 'Geolocation is niet beschikbaar voor uw browser.';
   }
 }
 
@@ -29,12 +29,12 @@ function onSuccess(position) {
     })
     .catch(error => {
       console.log('Error getting reverse geocoding data:', error);
-      resultElement.value = 'Error getting address.';
+      resultElement.value = 'Kon het adres niet vinden. Er is een fout opgetreden.';
     });
 }
 
 function onError(error) {
-  resultElement.value = 'Error getting current location: ' + error.message;
+  resultElement.value = 'Error opgelopen met het opladen van uw locatie: ' + error.message;
 }
 
 getLocationBtn.addEventListener('click', getLocation);
