@@ -194,6 +194,18 @@ header a:first-of-type {
 
 
 
+/**************/
+/* Main hover states */
+/**************/
+
+.form input[type="text"]:hover, .form select:hover, .form input[type="date"]:hover, .form main textarea:hover {
+    border: var(--knop) solid 4px;
+    transition: 150ms;
+}
+
+header a:hover {
+    color: var(--knop);
+}
 
 
 
@@ -280,7 +292,7 @@ footer ul {
 /**************/
 
 .ingevuld {
-    border: var(--green) solid 4px;;
+    border: var(--green) solid 4px;
 }
 
 .uit {

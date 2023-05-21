@@ -2,6 +2,13 @@
 console.log("script.js geladen");
 
 
+
+
+
+/***********************************************/
+/* huidig locatie knop progressive enhancement */
+/***********************************************/
+
 // Code voor geolocation API en reverse geocoding van Geoapify
 const apiKey = '15a0ff507ba54cdeaa2699add37a5999';
 const resultElement = document.getElementById('plaats');
@@ -15,6 +22,7 @@ function getLocation() {
   }
 }
 
+// Reverse geocoding van Geoapify
 function onSuccess(position) {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
@@ -33,18 +41,23 @@ function onSuccess(position) {
     });
 }
 
+// Error handling voor geolocation
 function onError(error) {
   resultElement.value = 'Error opgelopen met het opladen van uw locatie: ' + error.message;
 }
 
+
+
+
+
+/**********************************************/
+/* hide submit button progressive enhancement */
+/**********************************************/
+
+// Event listener voor de gebruik huidige locatie knop
 getLocationBtn.addEventListener('click', getLocation);
 
-
-
-
-
-
-// Event listeners voor het formulier
+// Dom elementen selecteren
 const submitButton = document.querySelector(".form main div:last-of-type>input");
 
 const inputHobby = document.getElementById("hobby-select");
@@ -63,6 +76,8 @@ const inputBeschrijving = document.getElementById("beschrijving");
 const beschrijvingSelector = document.querySelector(".form main textarea");
 let beschrijvingAan = false;
 
+
+// De submit button wordt uitgezet als er nog geen input is
 if (
   hobbyAan == false &&
   plaatsAan == false &&
@@ -73,6 +88,7 @@ if (
   submitButton.classList.add("uit");
 }
 
+// De submit button wordt aangezet als alle input zijn tenminste 1 keertje zijn aangeklikt/gefocusd
 function checkSubmitButton() {
   if (hobbyAan && plaatsAan && datumsAan && beschrijvingAan) {
     console.log("submit aan");
