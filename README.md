@@ -1,6 +1,14 @@
 # blok-tech-
 Marc Bakker blok tech repository
 
+* Naam: Marc Bakker
+* Studentnummer: 500880422
+* Klas: Tech-3 (203)
+* Email: marc.bakker2@hva.nl
+* Titel: Individueel (feature)
+* Vak: Blok Tech
+* Docenten: Ivo Nijhuis, Robert Spier, Michael kern
+
 ## Over het project
 
 Deze repository is waar ik (Marc Bakker) Senior Hobby Match samen ontwikkelen. Ik zal hier werken aan code en bugs. In de wiki van de repository zal ik het: Concept, Configuration, Server-side, Client-side en de Meta bijhouden. De source code is verkrijgbaar voor iedereen onder het standaard [MIT-licentie](LICENSE.txt).
