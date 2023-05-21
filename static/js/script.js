@@ -1,24 +1,20 @@
 // Javascript link check
 console.log("script.js geladen");
 
-
-
-
-
 /***********************************************/
 /* huidig locatie knop progressive enhancement */
 /***********************************************/
 
 // Code voor geolocation API en reverse geocoding van Geoapify
-const apiKey = '15a0ff507ba54cdeaa2699add37a5999';
-const resultElement = document.getElementById('plaats');
-const getLocationBtn = document.getElementById('getLocationBtn');
+const apiKey = "15a0ff507ba54cdeaa2699add37a5999";
+const resultElement = document.getElementById("plaats");
+const getLocationBtn = document.getElementById("getLocationBtn");
 
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
   } else {
-    resultElement.value = 'Geolocation is niet beschikbaar voor uw browser.';
+    resultElement.value = "Geolocation is niet beschikbaar voor uw browser.";
   }
 }
 
@@ -30,52 +26,52 @@ function onSuccess(position) {
   const reverseGeocodingUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&apiKey=${apiKey}`;
 
   fetch(reverseGeocodingUrl)
-    .then(response => response.json())
-    .then(data => {
+    .then(() => resultElement.value = "Een moment geduld a.u.b." ())
+    .then((response) => response.json())
+    .then((data) => {
       const address = data.features[0].properties.formatted;
       resultElement.value = address;
     })
-    .catch(error => {
-      console.log('Error getting reverse geocoding data:', error);
-      resultElement.value = 'Kon het adres niet vinden. Er is een fout opgetreden.';
+    .catch((error) => {
+      console.log("Error getting reverse geocoding data:", error);
+      resultElement.value =
+        "Kon het adres niet vinden. Er is een fout opgetreden.";
     });
 }
 
 // Error handling voor geolocation
 function onError(error) {
-  resultElement.value = 'Error opgelopen met het opladen van uw locatie: ' + error.message;
+  resultElement.value =
+    "Error opgelopen met het opladen van uw locatie: " + error.message;
 }
-
-
-
-
 
 /**********************************************/
 /* hide submit button progressive enhancement */
 /**********************************************/
 
 // Event listener voor de gebruik huidige locatie knop
-getLocationBtn.addEventListener('click', getLocation);
+getLocationBtn.addEventListener("click", getLocation);
 
 // Dom elementen selecteren
-const submitButton = document.querySelector(".form main div:last-of-type>input");
+const submitButton = document.querySelector(
+  ".form main div:last-of-type>input"
+);
 
-const inputHobby = document.getElementById("hobby-select");
+const hobbyInput = document.getElementById("hobby-select");
 const hobbySelector = document.querySelector(".form select");
 let hobbyAan = false;
 
-const inputPlaats = document.getElementById("plaats");
+const plaatsInput = document.getElementById("plaats");
 const plaatsSelector = document.querySelector(".form input");
 let plaatsAan = false;
 
-const inputDatum = document.getElementById("datum");
+const datumInput = document.getElementById("datum");
 const datumSelector = document.querySelector(".form input[type=date]");
 let datumsAan = false;
 
-const inputBeschrijving = document.getElementById("beschrijving");
+const beschrijvingInput = document.getElementById("beschrijving");
 const beschrijvingSelector = document.querySelector(".form main textarea");
 let beschrijvingAan = false;
-
 
 // De submit button wordt uitgezet als er nog geen input is
 if (
@@ -96,28 +92,28 @@ function checkSubmitButton() {
   }
 }
 
-inputHobby.addEventListener("focus", () => {
+hobbyInput.addEventListener("focus", () => {
   console.log("hobby gefocust");
   hobbySelector.classList.add("ingevuld");
   hobbyAan = true;
   checkSubmitButton();
 });
 
-inputPlaats.addEventListener("focus", () => {
+plaatsInput.addEventListener("focus", () => {
   console.log("plaats gefocust");
   plaatsSelector.classList.add("ingevuld");
   plaatsAan = true;
   checkSubmitButton();
 });
 
-inputDatum.addEventListener("focus", () => {
+datumInput.addEventListener("focus", () => {
   console.log("datum gefocust");
   datumSelector.classList.add("ingevuld");
   datumsAan = true;
   checkSubmitButton();
 });
 
-inputBeschrijving.addEventListener("focus", () => {
+beschrijvingInput.addEventListener("focus", () => {
   console.log("beschrijving gefocust");
   beschrijvingSelector.classList.add("ingevuld");
   beschrijvingAan = true;
