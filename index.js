@@ -16,6 +16,13 @@ app.get('/', (req, res) => {
 // Berichten pagina https link
 app.get('/berichten', (req, res) => {
   res.render('berichten.ejs');
+
+  //nep data om dynamisch te plaatsen op mijn template pagina's
+  const plaatsData = 'Dit is mijn stringgegevens vanuit de server!';
+  const hobbyData = 'Dit is mijn stringgegevens vanuit de server!';
+  const datumData = 'Dit is mijn stringgegevens vanuit de server!';
+  const beschrijvingData = 'Dit is mijn stringgegevens vanuit de server!';
+  res.render('berichten.ejs', { plaatsData, hobbyData, datumData, beschrijvingData });
 });
 
 // Server open zetten op port 3000
@@ -29,3 +36,16 @@ app.use(function (req, res) {
 
   res.render('error.ejs');
 });
+
+// app.post('/', (req, res) => {
+//   // Haal de formuliervelden op uit de request body
+//   const plaats = req.body.plaats;
+//   const hobby = req.body.hobbys;
+//   const datum = req.body.datum;
+//   const beschrijving = req.body.beschrijving;
+
+  
+//   // Stuur een succesreactie terug naar de client
+//   res.send('Uitnodiging succesvol verstuurd!');
+//   console.log(plaats, hobby, datum, beschrijving);
+// });
