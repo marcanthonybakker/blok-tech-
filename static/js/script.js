@@ -6,12 +6,12 @@ console.log("script.js geladen");
 /***********************************************/
 
 // Code voor geolocation API en reverse geocoding van Geoapify
-const apiKey = "15a0ff507ba54cdeaa2699add37a5999";
+const apiKey = "15a0ff507ba54cdeaa2699add37a5999"; // API key van Geoapify
 const resultElement = document.getElementById("plaats");
 const getLocationBtn = document.getElementById("getLocationBtn");
 
 function getLocation() {
-  if (navigator.geolocation) {
+  if (navigator.geolocation) { // Check of geolocation beschikbaar is
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
   } else {
     resultElement.value = "Geolocation is niet beschikbaar voor uw browser.";
@@ -19,19 +19,18 @@ function getLocation() {
 }
 
 // Reverse geocoding van Geoapify
-function onSuccess(position) {
+function onSuccess(position) {  // 
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
+  const reverseGeocodingUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&apiKey=${apiKey}`; // URL voor reverse geocoding
 
-  const reverseGeocodingUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&apiKey=${apiKey}`;
-
-  fetch(reverseGeocodingUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      const address = data.features[0].properties.formatted;
-      resultElement.value = address;
+  fetch(reverseGeocodingUrl) // Fetch data van reverse geocoding
+    .then((response) => response.json()) // Data omzetten naar json
+    .then((data) => {  // Data van reverse geocoding
+      const address = data.features[0].properties.formatted; 
+      resultElement.value = address; 
     })
-    .catch((error) => {
+    .catch((error) => { // Error handling voor reverse geocoding
       console.log("Error getting reverse geocoding data:", error);
       resultElement.value =
         "Kon het adres niet vinden. Er is een fout opgetreden.";
@@ -58,7 +57,7 @@ const submitButton = document.querySelector(
 
 const hobbyInput = document.getElementById("hobby-select");
 const hobbySelector = document.querySelector(".form select");
-let hobbyAan = false;
+let hobbyAan = false; 
 
 const plaatsInput = document.getElementById("plaats");
 const plaatsSelector = document.querySelector(".form input");
