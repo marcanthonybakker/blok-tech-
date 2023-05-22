@@ -26,7 +26,6 @@ function onSuccess(position) {
   const reverseGeocodingUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&apiKey=${apiKey}`;
 
   fetch(reverseGeocodingUrl)
-    .then(() => resultElement.value = "Een moment geduld a.u.b." ())
     .then((response) => response.json())
     .then((data) => {
       const address = data.features[0].properties.formatted;
