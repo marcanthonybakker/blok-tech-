@@ -1,3 +1,5 @@
+![Scherm­afbeelding 2023-05-23 om 12 31 26](https://github.com/marcanthonybakker/blok-tech-/assets/118165939/f36d9b95-62a7-4640-9e57-9f4db8819532)
+
 # blok-tech-
 Marc Bakker blok tech repository
 
@@ -22,6 +24,31 @@ Voor dit project zal ik alleen de uitnodiging feature uitwerken.
 ## Code of Conduct
 
 Dit project gebruikt een [Contributer Covenant](CODE_OF_CONDUCT.md) Code of Conduct. Voor informatie of vragen mail naar marcbakker2@hva.nl
+
+## Tech
+
+* HTML
+* CSS
+* JAVASCRIPT
+* NODE.JS
+* EXPRESS.JS
+* EJS
+* MONGODB
+* BROWSER API: GEOLOCATION
+* THIRD PARTY API: REVERSEGEOCODING van Geoapify
+
+## Installatie
+
+1. Clone deze repository naar een gewenste lokale map op jouw computer.
+2. Bekijk de benodigde dependencies op de package-lock.json. Dependencies van 23-5-2023:
+* "ejs": "^3.1.9",
+* "express": "^4.18.2",
+* "mongodb": "^5.4.0"
+3. Start de server in uw CLI met nodemon index.js
+4. Je kan de volgende pagina's gebruiken met deze URL's in jouw webbrowser:
+* Uitnodiging pagina: http://localhost:3000/
+* Berichten pagina: http://localhost:3000/berichten
+* 404 pagina voor niet bestaande pagina's: http://localhost:3000/etc
 
 ## License
 
