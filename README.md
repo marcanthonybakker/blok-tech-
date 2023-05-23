@@ -83,3 +83,4 @@ Gelicenseerd onder de [MIT-licentie](LICENSE.txt)
 * Place Autocomplete  |  Places API  |  Google for Developers. (z.d.). Google for Developers. Geraadpleegd op 18 mei 18AD, van https://developers.google.com/maps/documentation/places/web-service/autocomplete
 * Geoapify GmbH. (2022, 22 december). Maps, APIs and components | Geoapify Location Platform. Geoapify. https://www.geoapify.com/
 * Reverse Geocoding  |  Maps JavaScript API  |  Google for Developers. (z.d.). Google for Developers. Geraadpleegd op 19 mei 2023, van https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
+* Contributor Covenant: (z.d.). Geraadpleegd op 23 mei 2023, van https://www.contributor-covenant.org/version/1/0/0/code-of-conduct/
