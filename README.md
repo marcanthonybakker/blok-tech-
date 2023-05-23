@@ -25,7 +25,7 @@ Voor dit project zal ik alleen de uitnodiging feature uitwerken.
 
 Dit project gebruikt een [Contributer Covenant](CODE_OF_CONDUCT.md) Code of Conduct. Voor informatie of vragen mail naar marcbakker2@hva.nl
 
-## Tech
+## Gebruikte tech
 
 * HTML
 * CSS
