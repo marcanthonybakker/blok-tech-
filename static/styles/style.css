@@ -37,6 +37,7 @@ button, summary {
     --bg: #E1EEE7;
     --white: #FFFFFF;
     --green: #00d42e;
+    --grey: #696969;
 }
 
 /**************/
@@ -95,7 +96,7 @@ header a:first-of-type {
 /* Main */
 /**************/
 
-.form main h1, main h2, legend {
+.form main h1, legend {
     color: var(--font);
     font-size: 1.5em;
     margin-top: 0.5em;
@@ -185,12 +186,15 @@ header a:first-of-type {
 }
 
 .form button {
+    font-size: 1.2em;
     color: var(--white);
     background-color: var(--knop);
     border-radius: 2em;
     margin-top: 1em;
     padding: 0.5em 1em 0.5em 1em;
 }
+
+
 
 
 
@@ -204,6 +208,60 @@ header a:first-of-type {
 }
 
 header a:hover {
+    color: var(--knop);
+}
+
+
+
+
+
+/**************/
+/* Berichten */
+/**************/
+
+.berichtenPagina main {
+    display: flex;
+    justify-content: center;
+}
+
+.berichtenPagina article {
+    background-color: var(--main);
+    border-radius: 0em 0em 2em 2em;
+    margin: 0em 2em 10em 2em;
+    width: 50em;
+}
+
+.berichtenPagina main h1 {
+    color: var(--font);
+    font-size: 1.5em;
+    margin: 1.2em 0em 1em 1em;
+}
+
+.berichtenPagina article ul {
+    list-style-type: none;
+    background-color: var(--white);
+    margin: 1.5em;
+    border-radius: 1em;
+}
+
+.berichtenPagina main ul li h2 {
+    padding-top: 0.5em;
+    font-size: 1em;
+    color: var(--grey);
+}
+
+.berichtenPagina main li {
+    font-size: 1.5em;
+    margin: 1em 0em 0em 1em;
+    color: var(--grey);
+}
+
+.berichtenPagina main li:first-of-type {
+    padding-top: 0.5em;
+}
+
+.berichtenPagina main li:last-of-type {
+    padding-bottom: 1em;
     color: var(--knop);
 }
 
@@ -224,6 +282,12 @@ footer ul {
     list-style-type: none;
     gap: 1em;
     color: var(--main);
+}
+
+footer p {
+    margin-top: 0.5em;
+    color: var(--white);
+    max-width: 50em;
 }
 
 
@@ -261,27 +325,6 @@ footer ul {
     text-decoration: none;
     font-size: 2em;
 }
-
-
-
-
-
-/**************/
-/* berichten */
-/**************/
-
-.berichten main>article {
-    background-color: var(--main);
-    border-radius: 2em;
-    margin: 2em 2em 10em 2em;
-    width: 30em;
-}
-
-.berichten>main h1 {
-    margin-left: 1em;
-    color: var(--main);
-}
-
 
 
 

@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <%- include('partials/head.ejs') %>
-        <title>Hobby Match prototype</title>
-</head>
+    <title>Hobby Match prototype</title>
+  </head>
 
-<body class="berichten">
-
-    <header>
-        <%- include('partials/header.ejs') %>
-    </header>
+  <body class="berichtenPagina">
+    <header><%- include('partials/header.ejs') %></header>
 
     <main>
-        <h1>Verzonden berichten</h1>
-        <article>
-            <section>
-                <ul>
-                    <li><p><%= plaatsData %></p></li>
-                    <li><p><%= hobbyData %></p></li>
-                    <li><p><%= datumData %></p></li>
-                    <li><p><%= beschrijvingData %></p></li>
-                </ul>
-            </section>
-        </article>
+      <article>
+        <section>
+          <h1>VERSTUURDE BERICHTEN</h1>
+          <ul>
+            <li>
+              <h2>Plaats</h2>
+              <p><%= plaatsData %></p>
+            </li>
+            <li>
+              <h2>Hobby</h2>
+              <p><%= hobbyData %></p>
+            </li>
+            <li>
+              <h2>Datum</h2>
+              <p><%= datumData %></p>
+            </li>
+            <li>
+              <h2>Beschrijving</h2>
+              <p><%= beschrijvingData %></p>
+            </li>
+            <li>Verzonden op: <%= verzendingData %></li>
+          </ul>
+        </section>
+      </article>
     </main>
 
-    <footer>
-        <%- include('partials/footer.ejs') %>
-    </footer>
-    
+    <footer><%- include('partials/footer.ejs') %></footer>
+
     <script src="js/script.js"></script>
-
-</body>
-
+  </body>
 </html>

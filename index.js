@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 const ejs = require('ejs');
 
+// Gebruiker data (nep data omdat ik nog geen database heb)
+const gebruikerData = 'Marc Bakker (server data)';
+
 // Templating engine aanzetten met statische content
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -10,7 +13,7 @@ app.use(express.static('static'));
 
 // Formulier pagina https link
 app.get('/', (req, res) => {
-  res.render('form.ejs');
+  res.render('form.ejs', { gebruikerData });
 });
 
 // Berichten pagina https link
@@ -18,11 +21,12 @@ app.get('/berichten', (req, res) => {
   res.render('berichten.ejs');
 
   //nep data om dynamisch te plaatsen op mijn template pagina's
-  const plaatsData = 'Dit is mijn stringgegevens vanuit de server!';
-  const hobbyData = 'Dit is mijn stringgegevens vanuit de server!';
-  const datumData = 'Dit is mijn stringgegevens vanuit de server!';
-  const beschrijvingData = 'Dit is mijn stringgegevens vanuit de server!';
-  res.render('berichten.ejs', { plaatsData, hobbyData, datumData, beschrijvingData });
+  const plaatsData = 'Wibautstraat 2, 1091 GM Amsterdam, Netherlands (server data)';
+  const hobbyData = 'tuinieren (server data)';
+  const datumData = '26-05-2023 (server data)';
+  const beschrijvingData = 'Ik hou van tuinieren (server data)';
+  const verzendingData = '26-05-2023 om 14:00 (server data)';
+  res.render('berichten.ejs', { plaatsData, hobbyData, datumData, beschrijvingData, verzendingData, gebruikerData });
 });
 
 // Server open zetten op port 3000
@@ -36,16 +40,3 @@ app.use(function (req, res) {
 
   res.render('error.ejs');
 });
-
-// app.post('/', (req, res) => {
-//   // Haal de formuliervelden op uit de request body
-//   const plaats = req.body.plaats;
-//   const hobby = req.body.hobbys;
-//   const datum = req.body.datum;
-//   const beschrijving = req.body.beschrijving;
-
-  
-//   // Stuur een succesreactie terug naar de client
-//   res.send('Uitnodiging succesvol verstuurd!');
-//   console.log(plaats, hobby, datum, beschrijving);
-// });
