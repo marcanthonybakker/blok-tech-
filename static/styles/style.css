@@ -1,43 +1,38 @@
 /* *************/
 /* Font */
 /**************/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
-
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 /**************/
 /* CSS REMEDY */
 /**************/
-*, *::after, *::before {
-  box-sizing:border-box;  
-  font-family: 'poppings', sans-serif;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: "poppings", sans-serif;
   margin: 0;
   padding: 0;
   border-style: none;
 }
 
-button, summary {
-    cursor: pointer;
+button,
+summary {
+  cursor: pointer;
 }
-
-
-
-
 
 /**************/
 /* Root */
 /**************/
 
 :root {
-    --main: #0A2232;
-    --knop: #47989B;
-    --font: #E1EEE7;
-    --bg: #E1EEE7;
-    --white: #FFFFFF;
-    --green: #00d42e;
-    --grey: #696969;
+  --main: #0a2232;
+  --knop: #47989b;
+  --font: #e1eee7;
+  --bg: #e1eee7;
+  --white: #ffffff;
+  --green: #00d42e;
+  --grey: #696969;
 }
 
 /**************/
@@ -45,299 +40,284 @@ button, summary {
 /**************/
 
 body {
-    background-color: var(--bg);
+  background-color: var(--bg);
 }
 
-label, select, select, input, textarea, input[type="file"]{
-    font-size: 1.5em;
-    color: var(--font);
-    margin: 0;
-    padding: 0;
+label,
+select,
+select,
+input,
+textarea,
+input[type="file"] {
+  font-size: 1.5em;
+  color: var(--font);
+  margin: 0;
+  padding: 0;
 }
-
-
-
-
 
 /**************/
 /* Header */
 /**************/
 
 header {
-    display: flex;
-    justify-content: center;
-    justify-items: baseline;
-    background-color: var(--main);
-    padding: 1em 2em 1em 2em;
-    border-bottom: var(--knop) solid 4px;
+  display: flex;
+  justify-content: center;
+  justify-items: baseline;
+  background-color: var(--main);
+  padding: 1em 2em 1em 2em;
+  border-bottom: var(--knop) solid 4px;
 }
 
 header a {
-    color: var(--font);
-    text-decoration: none;
-    font-size: 1.5em;
-    font-weight: 600;
+  color: var(--font);
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: 600;
 }
 
 header img {
-    width: 2em;
-    margin-bottom: -0.45em;
+  width: 2em;
+  margin-bottom: -0.45em;
 }
 
 header a:first-of-type {
-    margin-right: 1em;
+  margin-right: 1em;
 }
-
-
-
-
 
 /**************/
 /* Main */
 /**************/
 
-.form main h1, legend {
-    color: var(--font);
-    font-size: 1.5em;
-    margin-top: 0.5em;
+.form main h1,
+legend {
+  color: var(--font);
+  font-size: 1.5em;
+  margin-top: 0.5em;
 }
 
 .form main {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .form main article {
-    width: 50em;
+  width: 50em;
 }
 
 .form main legend {
-    font-weight: 800;
+  font-weight: 800;
 }
 
-.form main label{
-    margin-bottom: 0.5em;
+.form main label {
+  margin-bottom: 0.5em;
 }
 
 .form fieldset {
-    border-style: none;
+  border-style: none;
 }
 
 .form main article:first-of-type {
-    background-color: var(--main);
-    border-radius: 0em 0em 2em 2em;
-    margin: 0em 2em 10em 2em;
+  background-color: var(--main);
+  border-radius: 0em 0em 2em 2em;
+  margin: 0em 2em 10em 2em;
 }
 
 .form main section {
-    margin: 2em 0em 0em 0em;
-    display: flex;
-    flex-direction: column;
+  margin: 2em 0em 0em 0em;
+  display: flex;
+  flex-direction: column;
 }
 
 .form main form {
-    margin: 2em 2em 2.5em 2em;
+  margin: 2em 2em 2.5em 2em;
 }
 
 .form main div {
-    margin-top: 2em;
-    display: flex;
-    align-items: center;
+  margin-top: 2em;
+  display: flex;
+  align-items: center;
 }
 
 .form main textarea {
-    border-radius: 1em;
-    padding: 0.5em;
-    color: var(--main); 
+  border-radius: 1em;
+  padding: 0.5em;
+  color: var(--main);
 }
 
 .form main div:last-of-type {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-.form main div:last-of-type>input {
-    border-radius: 2em;
-    padding: 0.5em 2em 0.5em 2em;
-    color: var(--font);
-    background-color: var(--knop);
-    border-style: none;
-    font-weight: 600;
+.form main div:last-of-type > input {
+  border-radius: 2em;
+  padding: 0.5em 2em 0.5em 2em;
+  color: var(--font);
+  background-color: var(--knop);
+  border-style: none;
+  font-weight: 600;
 }
 
 .form input[type="file"] {
-    color: var(--knop);
+  color: var(--knop);
 }
 
 .form select {
-    color: var(--knop);
-    border-radius: 2em;
-    padding: 0.5em 1em 0.5em 1em;
+  color: var(--knop);
+  border-radius: 2em;
+  padding: 0.5em 1em 0.5em 1em;
 }
 
-.form input[type="text"], input[type=date] {
-    border-radius: 2em;
-    padding: 0.5em 1em 0.5em 1em;
-    color: var(--knop);
+.form input[type="text"],
+input[type="date"] {
+  border-radius: 2em;
+  padding: 0.5em 1em 0.5em 1em;
+  color: var(--knop);
 }
 
 .form input[type="file"] {
-    display: none;
+  display: none;
 }
 
 .form button {
-    font-size: 1.2em;
-    color: var(--white);
-    background-color: var(--knop);
-    border-radius: 2em;
-    margin-top: 1em;
-    padding: 0.5em 1em 0.5em 1em;
+  font-size: 1.2em;
+  color: var(--white);
+  background-color: var(--knop);
+  border-radius: 2em;
+  margin-top: 1em;
+  padding: 0.5em 1em 0.5em 1em;
 }
-
-
-
-
 
 /**************/
 /* Main hover states */
 /**************/
 
-.form input[type="text"]:hover, .form select:hover, .form input[type="date"]:hover, .form main textarea:hover {
-    border: var(--knop) solid 4px;
-    transition: 150ms;
+.form input[type="text"]:hover,
+.form select:hover,
+.form input[type="date"]:hover,
+.form main textarea:hover {
+  border: var(--knop) solid 4px;
+  transition: 150ms;
 }
 
 header a:hover {
-    color: var(--knop);
+  color: var(--knop);
 }
-
-
-
-
 
 /**************/
 /* Berichten */
 /**************/
 
 .berichtenPagina main {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .berichtenPagina article {
-    background-color: var(--main);
-    border-radius: 0em 0em 2em 2em;
-    margin: 0em 2em 10em 2em;
-    width: 50em;
+  background-color: var(--main);
+  border-radius: 0em 0em 2em 2em;
+  margin: 0em 2em 10em 2em;
+  width: 50em;
 }
 
 .berichtenPagina main h1 {
-    color: var(--font);
-    font-size: 1.5em;
-    margin: 1.2em 0em 1em 1em;
+  color: var(--font);
+  font-size: 1.5em;
+  margin: 1.2em 0em 1em 1em;
 }
 
 .berichtenPagina article ul {
-    list-style-type: none;
-    background-color: var(--white);
-    margin: 1.5em;
-    border-radius: 1em;
+  list-style-type: none;
+  background-color: var(--white);
+  margin: 1.5em;
+  border-radius: 1em;
 }
 
 .berichtenPagina main ul li h2 {
-    padding-top: 0.5em;
-    font-size: 1em;
-    color: var(--grey);
+  padding-top: 0.5em;
+  font-size: 1em;
+  color: var(--grey);
 }
 
 .berichtenPagina main li {
-    font-size: 1.5em;
-    margin: 1em 0em 0em 1em;
-    color: var(--grey);
+  font-size: 1.5em;
+  margin: 1em 0em 0em 1em;
+  color: var(--grey);
 }
 
 .berichtenPagina main li:first-of-type {
-    padding-top: 0.5em;
+  padding-top: 0.5em;
 }
 
 .berichtenPagina main li:last-of-type {
-    padding-bottom: 1em;
-    color: var(--knop);
+  padding-bottom: 1em;
+  color: var(--knop);
 }
-
-
 
 /**************/
 /* Footer */
 /**************/
 
 footer {
-    background-color: var(--knop);
-    padding: 1em 2em 1em 2em;
+  background-color: var(--knop);
+  padding: 1em 2em 1em 2em;
 }
 
 footer ul {
-    display: flex;
-    justify-content: flex-start;
-    list-style-type: none;
-    gap: 1em;
-    color: var(--main);
+  display: flex;
+  justify-content: flex-start;
+  list-style-type: none;
+  gap: 1em;
+  color: var(--main);
 }
 
 footer p {
-    margin-top: 0.5em;
-    color: var(--white);
-    max-width: 50em;
+  margin-top: 0.5em;
+  color: var(--white);
+  max-width: 50em;
 }
-
-
-
-
 
 /**************/
 /* Error Pagina */
 /**************/
 
 .errorPagina {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .errorPagina h1 {
-    font-size: 8em;
-    color: var(--main);
+  font-size: 8em;
+  color: var(--main);
 }
 
 .errorPagina p {
-    color: var(--main);
-    font-size: 2em;
+  color: var(--main);
+  font-size: 2em;
+  margin: 0em 5em 0em 5em;
 }
 
 .errorPagina a {
-    margin-top: 2em;
-    border-radius: 2em;
-    padding: 0.5em 1em 0.5em 1em;
-    background-color: var(--white);
-    color: var(--knop);
-    text-decoration: none;
-    font-size: 2em;
+  margin-top: 2em;
+  border-radius: 2em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: var(--white);
+  color: var(--knop);
+  text-decoration: none;
+  font-size: 2em;
 }
-
-
-
-
 
 /**************/
 /* ingevuld & uit */
 /**************/
 
 .ingevuld {
-    border: var(--green) solid 4px;
+  border: var(--green) solid 4px;
 }
 
 .uit {
-    display: none;
+  display: none;
 }
