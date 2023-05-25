@@ -42,19 +42,14 @@ app.get('/data', async (req, res) => {
   res.send(data);
 })
 
-// Templating engine aanzetten met statische content
+//DB data op een template toevoegen
+
+
+// Templating engine aanzetten met statische content en geposte data ophalen
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(express.static('static'));
-
-
-
-// NIEUW
 app.use(express.urlencoded({ extended: true }));
-
-
-
-
 
 // Formulier pagina https link
 app.get('/', (req, res) => {
@@ -62,7 +57,7 @@ app.get('/', (req, res) => {
 });
 
 // Berichten pagina https link
-app.get('/berichten', (req, res) => {
+app.get('/berichten', async (req, res) => {
   res.render('berichten.ejs');
 
   //nep data om dynamisch te plaatsen op mijn template pagina's
@@ -71,6 +66,7 @@ app.get('/berichten', (req, res) => {
   const datumData = '26-05-2023 (server data)';
   const beschrijvingData = 'Ik hou van tuinieren (server data)';
   const verzendingData = '26-05-2023 om 14:00 (server data)';
+
   res.render('berichten.ejs', { plaatsData, hobbyData, datumData, beschrijvingData, verzendingData, gebruikerData });
 });
 
