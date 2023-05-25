@@ -1,73 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <%- include('partials/head.ejs') %>
     <title>Hobby Match prototype</title>
-</head>
+  </head>
 
-<body class="form">
-
-    <header>
-        <%- include('partials/header.ejs') %>
-    </header>
+  <body class="form">
+    <header><%- include('partials/header.ejs') %></header>
 
     <main>
-        <article>
-            <form>
-                <fieldset>
-                    <legend>
-                        UITNODIGING
-                    </legend>
+      <article>
+        <form>
+          <fieldset>
+            <legend>UITNODIGING</legend>
 
-                    <section>
-                        <label for="">1. Plaats:</label>
-                        <input type="text" id="plaats" placeholder="Jouw adres" required>
-                        <button class=""id="getLocationBtn">Gebruik huidige locatie</button>
-                    </section>
+            <section>
+              <label for="">1. Plaats:</label>
+              <input
+                type="text"
+                id="plaats"
+                placeholder="Jouw adres"
+                required
+              />
+              <button class="" id="getLocationBtn">
+                Gebruik huidige locatie
+              </button>
+            </section>
 
-                    <section>
-                        <label for="hobby-select">2. Hobby:</label>
-                        <select class="" name="hobbys" id="hobby-select" required>
-                            <option value="">--Kies een hobby--</option>
-                            <option value="tuinieren">tuinieren</option>
-                            <option value="reizen">reizen</option>
-                            <option value="fotografie">fotografie</option>
-                            <option value="lezen">lezen</option>
-                            <option value="knutselen">knutselen</option>
-                            <option value="koken">koken</option>
-                            <option value="fitness">fitness</option>
-                            <option value="verzamelobjecten">verzamelobjecten</option>
-                            <option value="collectie">collectie</option>
-                        </select>
-                    </section>
+            <section>
+              <label for="hobby-select">2. Hobby:</label>
+              <select class="" name="hobbys" id="hobby-select" required>
+                <option value="">--Kies een hobby--</option>
+                <option value="tuinieren">tuinieren</option>
+                <option value="reizen">reizen</option>
+                <option value="fotografie">fotografie</option>
+                <option value="lezen">lezen</option>
+                <option value="knutselen">knutselen</option>
+                <option value="koken">koken</option>
+                <option value="fitness">fitness</option>
+                <option value="verzamelobjecten">verzamelobjecten</option>
+                <option value="collectie">collectie</option>
+              </select>
+            </section>
 
-                    <section>
-                        <label for="datum">3. Datum:</label>
-                        <input class="" type="date" id="datum" name="trip-start" value="" min="2023-04-01" max="2024-12-30" required>
-                    </section>
+            <section>
+              <label for="datum">3. Datum:</label>
+              <input
+                class=""
+                type="date"
+                id="datum"
+                name="trip-start"
+                value=""
+                min="2023-04-01"
+                max="2024-12-30"
+                required
+              />
+            </section>
 
-                    <section>
-                        <label for="beschrijving">4. Beschrijving:</label>
-                        <textarea class="" id="beschrijving"
-                        name="beschrijving" placeholder="Scrijf wat over jouw activiteit" required></textarea>
-                    </section>
+            <section>
+              <label for="beschrijving">4. Beschrijving:</label>
+              <textarea
+                class=""
+                id="beschrijving"
+                name="beschrijving"
+                placeholder="Scrijf wat over jouw activiteit"
+                required
+              ></textarea>
+            </section>
 
-                    <div>
-                        <input class="" type="submit" value="Verstuur">
-                    </div>
-
-                </fieldset>
-            </form>
-        </article>
+            <div>
+              <input class="" type="submit" value="Verstuur" />
+            </div>
+          </fieldset>
+        </form>
+      </article>
     </main>
 
-    <footer>
-        <%- include('partials/footer.ejs') %>
-    </footer>
+    <footer><%- include('partials/footer.ejs') %></footer>
 
     <script src="js/script.js"></script>
-
-</body>
-
+  </body>
 </html>
