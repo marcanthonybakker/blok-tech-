@@ -11,7 +11,8 @@ const resultElement = document.getElementById("plaats");
 const getLocationBtn = document.getElementById("getLocationBtn");
 
 function getLocation() {
-  if (navigator.geolocation) { // Check of geolocation beschikbaar is
+  if (navigator.geolocation) {
+    // Check of geolocation beschikbaar is
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
   } else {
     resultElement.value = "Geolocation is niet beschikbaar voor uw browser.";
@@ -19,18 +20,21 @@ function getLocation() {
 }
 
 // Reverse geocoding van Geoapify
-function onSuccess(position) {  // 
+function onSuccess(position) {
+  //
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
   const reverseGeocodingUrl = `https://api.geoapify.com/v1/geocode/reverse?lat=${latitude}&lon=${longitude}&apiKey=${apiKey}`; // URL voor reverse geocoding
 
   fetch(reverseGeocodingUrl) // Fetch data van reverse geocoding
     .then((response) => response.json()) // Data omzetten naar json
-    .then((data) => {  // Data van reverse geocoding
-      const address = data.features[0].properties.formatted; 
-      resultElement.value = address; 
+    .then((data) => {
+      // Data van reverse geocoding
+      const address = data.features[0].properties.formatted;
+      resultElement.value = address;
     })
-    .catch((error) => { // Error handling voor reverse geocoding
+    .catch((error) => {
+      // Error handling voor reverse geocoding
       console.log("Error getting reverse geocoding data:", error);
       resultElement.value =
         "Kon het adres niet vinden. Er is een fout opgetreden.";
@@ -57,7 +61,7 @@ const submitButton = document.querySelector(
 
 const hobbyInput = document.getElementById("hobby-select");
 const hobbySelector = document.querySelector(".form select");
-let hobbyAan = false; 
+let hobbyAan = false;
 
 const plaatsInput = document.getElementById("plaats");
 const plaatsSelector = document.querySelector(".form input");
