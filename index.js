@@ -61,7 +61,7 @@ app.get("/", (req, res) => {
   res.render("form.ejs", { gebruikerData });
 });
 
-app.post('/', function(req, res) {
+app.post('/berichten', function(req, res) {
   plaatsData = req.body.plaats;
   hobbyData = req.body.hobbys;
   datumData = req.body['trip-start'];
@@ -85,10 +85,9 @@ app.get("/berichten", (req, res) => {
 });
 
 // Error 404: ontbrekende pagina of onjuist pad
-app.use(function (req, res) {
-  res.status(404);
-  res.render("error.ejs");
-});
+app.get("/*", (req, res) => {
+  res.status(404).render('404', { title: '404' })
+})
 
 // Server open zetten op poort 3000
 app.listen(3000, () => {
