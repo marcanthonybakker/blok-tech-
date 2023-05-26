@@ -10,15 +10,16 @@
 
     <main>
       <article>
-        <form>
+        <form action="/berichten" method="POST">
           <fieldset>
             <legend>UITNODIGING</legend>
 
             <section>
-              <label for="">1. Plaats:</label>
+              <label for="plaats">1. Plaats:</label>
               <input
                 type="text"
                 id="plaats"
+                name="plaats"
                 placeholder="Jouw adres"
                 required
               />
@@ -63,7 +64,7 @@
                 class=""
                 id="beschrijving"
                 name="beschrijving"
-                placeholder="Scrijf wat over jouw activiteit"
+                placeholder="Schrijf wat over jouw activiteit"
                 required
               ></textarea>
             </section>

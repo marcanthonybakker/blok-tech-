@@ -29,6 +29,13 @@ async function run() {
 }
 run().catch(console.dir);
 
+
+
+
+
+
+
+
 // Server express en ejs laten gebruiken
 const express = require("express");
 const app = express();
@@ -37,14 +44,11 @@ const ejs = require("ejs");
 // Gebruiker data (nep data omdat ik nog geen database heb)
 const gebruikerData = "Marc Bakker (server data)";
 
-// Test data uit database halen
-app.get("/data", async (req, res) => {
-  const collection = client.db("bloktech").collection("gebruikersNaam");
-  const data = await collection.find({}).toArray();
-  res.send(data);
-});
-
-//DB data op een template toevoegen
+// Variabelen om geposte gegevens op te slaan
+let plaatsData = "";
+let hobbyData = "";
+let datumData = "";
+let beschrijvingData = "";
 
 // Templating engine aanzetten met statische content en geposte data ophalen
 app.set("view engine", "ejs");
@@ -57,36 +61,37 @@ app.get("/", (req, res) => {
   res.render("form.ejs", { gebruikerData });
 });
 
+app.post('/', function(req, res) {
+  plaatsData = req.body.plaats;
+  hobbyData = req.body.hobbys;
+  datumData = req.body['trip-start'];
+  beschrijvingData = req.body.beschrijving;
+
+  // Hier kun je de gegevens verder verwerken, bijvoorbeeld opslaan in een database of uitvoeren van andere logica
+
+  // Doorsturen naar /berichten
+  res.redirect("/berichten");
+});
+
 // Berichten pagina https link
-app.get("/berichten", async (req, res) => {
-  res.render("berichten.ejs");
-
-  //nep data om dynamisch te plaatsen op mijn template pagina's
-  const plaatsData =
-    "Wibautstraat 2, 1091 GM Amsterdam, Netherlands (server data)";
-  const hobbyData = "tuinieren (server data)";
-  const datumData = "26-05-2023 (server data)";
-  const beschrijvingData = "Ik hou van tuinieren (server data)";
-  const verzendingData = "26-05-2023 om 14:00 (server data)";
-
-  res.render("berichten.ejs", {
+app.get("/berichten", (req, res) => {
+  res.render("berichten.ejs", { 
     plaatsData,
     hobbyData,
     datumData,
     beschrijvingData,
-    verzendingData,
-    gebruikerData,
+    gebruikerData
   });
 });
 
-// Server open zetten op port 3000
-app.listen(3000, () => {
-  console.log("Server aan op port 3000");
-});
-
-// Error 404 missende pagina/icorrect pad
+// Error 404: ontbrekende pagina of onjuist pad
 app.use(function (req, res) {
   res.status(404);
-
   res.render("error.ejs");
 });
+
+// Server open zetten op poort 3000
+app.listen(3000, () => {
+  console.log("Server draait op poort 3000");
+});
+
