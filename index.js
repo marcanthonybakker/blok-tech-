@@ -86,7 +86,8 @@ app.get("/berichten", (req, res) => {
 
 // Error 404: ontbrekende pagina of onjuist pad
 app.get("/*", (req, res) => {
-  res.status(404).render('404', { title: '404' })
+  res.status(404);
+  res.render("error.ejs");
 })
 
 // Server open zetten op poort 3000
