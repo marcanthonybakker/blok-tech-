@@ -52,6 +52,20 @@ const collectionFormulierData = client.db("bloktech").collection("formulierDataC
 
 
 
+//Nep gebruikers voor route parameters
+const gebruikerParameter = [
+  { id: "marc1234"},
+];
+
+
+
+// Variabelen om geposte gegevens op te slaan
+let plaatsData = "";
+let hobbyData = "";
+let datumData = "";
+let beschrijvingData = "";
+let gebruikerData = "";
+
 
 // Formulier gegevens naar de database sturen
 async function stopDataInDatabase(data) {
@@ -73,13 +87,6 @@ async function stopDataInDatabase(data) {
 
 
 
-// Variabelen om geposte gegevens op te slaan
-let plaatsData = "";
-let hobbyData = "";
-let datumData = "";
-let beschrijvingData = "";
-let gebruikerData = "";
-
 
 
 
@@ -94,10 +101,18 @@ app.use(express.urlencoded({ extended: true }));
 
 
 // Formulier pagina https link
-app.get("/", async (req, res) => {
+app.get("/:id", async (req, res) => {
+  const userId = req.params.id;
+  const gevondenGebruiker = gebruikerParameter.find(user => user.id === userId);
   const gebruikerData = await collectionGebruikerData.find({}).toArray();
-  res.render("form.ejs", { gebruikerData });
+
+  if (gevondenGebruiker) {
+    res.render("form.ejs", { gebruikerData });
+  } else {
+    res.render("error.ejs");
+  }
 });
+
 
 
 
@@ -170,26 +185,9 @@ app.get("/berichten", async (req, res) => {
     }
   } catch (err) {
     console.error("Fout bij het ophalen van gegevens:", err);
-    res.render("error.ejs");
   }
 });
 
-
-
-
-// Data ophalen uit de database oefening
-app.get("/data", async (req, res) => {
-  try {
-    const gebruikerData = await collectionGebruikerData.find({}).toArray();
-    const plaatsData = await collectionFormulierData.find({}).toArray();
-    const hobbyData = await collectionFormulierData.find({}).toArray();
-    const datumData = await collectionFormulierData.find({}).toArray();
-    const beschrijvingData = await collectionFormulierData.find({}).toArray();
-    res.render("data.ejs", { gebruikerData, plaatsData, hobbyData, datumData, beschrijvingData });
-  } catch (err) {
-    console.error("Fout bij het ophalen van gegevens:", err);
-  }
-});
 
 
 
