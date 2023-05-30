@@ -1,11 +1,15 @@
+/*************************************/
+/* MongoDB aanzetten, basic security */
+/*************************************/
+
 // Haal wachtwoorden en andere data uit de .env file
 require("dotenv").config();
 
-// MongoDB connectie test ruimte
+// MongoDB connectie
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri = process.env.DB_PASSWORD;
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+// Creëer een MongoClient met een MongoClientOptions object om de stabiele API-versie in te stellen.
 console.log("uri: ", uri);
 const client = new MongoClient(uri, {
   serverApi: {
@@ -14,32 +18,41 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   },
 });
-
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    console.log(
+      "Je hebt een verbinding gemaakt met MongoDB en succesvol een 'ping' naar je implementatie gestuurd!"
+    );
   } finally {
     console.log("DB werkt");
   }
 }
-
 run().catch(console.dir);
+
+
+
+
+
+/************************/
+/* Vaak opgeroepde code */
+/************************/
 
 // Server express en ejs laten gebruiken
 const express = require("express");
 const app = express();
 const ejs = require("ejs");
 
-// Collectie van de database aanroepen
-const collectionGebruikerData = client.db("bloktech").collection("gebruikersNaam");
-const collectionFormulierData = client.db("bloktech").collection("formulierDataCollectie");
-
-// Nep gebruikers voor route parameters
-const gebruikerParameter = [{ id: "marc1234" }];
+// collectie van de database aanroepen
+const collectionGebruikerData = client
+  .db("bloktech")
+  .collection("gebruikersNaam");
+const collectionFormulierData = client
+  .db("bloktech")
+  .collection("formulierDataCollectie");
 
 // Variabelen om geposte gegevens op te slaan
 let plaatsData = "";
@@ -47,6 +60,34 @@ let hobbyData = "";
 let datumData = "";
 let beschrijvingData = "";
 let gebruikerData = "";
+
+// Templating engine aanzetten met statische content en geposte data ophalen
+app.set("view engine", "ejs");
+app.set("views", "views");
+app.use(express.static("static"));
+app.use(express.urlencoded({ extended: true }));
+
+
+
+
+
+/*****************************************************/
+/* Formulier pagina route, data RECIEVE van database */
+/*****************************************************/
+
+// Formulier pagina https link
+app.get("/", async (req, res) => {
+  const gebruikerData = await collectionGebruikerData.find({}).toArray();
+  res.render("form.ejs", { gebruikerData });
+});
+
+
+
+
+
+/***************************************************************/
+/* Berichten pagina route, data CREATE en RECIEVE van database */
+/***************************************************************/
 
 // Formulier gegevens naar de database sturen
 async function stopDataInDatabase(data) {
@@ -59,30 +100,14 @@ async function stopDataInDatabase(data) {
 
     // Voeg de gegevens toe aan de collectie
     const result = await collectionFormulierData.insertOne(data);
-    console.log("Gegevens zijn succesvol toegevoegd aan de database:", result.insertedId);
+    console.log(
+      "Gegevens zijn succesvol toegevoegd aan de database:",
+      result.insertedId
+    );
   } catch (err) {
     console.error("Fout bij het toevoegen van gegevens aan de database:", err);
   }
 }
-
-// Templating engine aanzetten met statische content en geposte data ophalen
-app.set("view engine", "ejs");
-app.set("views", "views");
-app.use(express.static("static"));
-app.use(express.urlencoded({ extended: true }));
-
-// Formulier pagina https link
-app.get("/:id", async (req, res) => {
-  const userId = req.params.id;
-  const gevondenGebruiker = gebruikerParameter.find(user => user.id === userId);
-  const gebruikerData = await collectionGebruikerData.find({}).toArray();
-
-  if (gevondenGebruiker) {
-    res.render("form.ejs", { gebruikerData });
-  } else {
-    res.render("error.ejs");
-  }
-});
 
 // Formulier gegevens ophalen en doorsturen naar de database
 app.post("/berichten", async function (req, res) {
@@ -121,6 +146,7 @@ app.get("/berichten", async (req, res) => {
     const beschrijvingData = await collectionFormulierData.find({}).toArray();
 
     if (
+      // Check of er gegevens in de database staan, zo niet geef dummy data door
       plaatsData.length === 0 ||
       hobbyData.length === 0 ||
       datumData.length === 0 ||
@@ -149,15 +175,30 @@ app.get("/berichten", async (req, res) => {
     }
   } catch (err) {
     console.error("Fout bij het ophalen van gegevens:", err);
-    res.render("error.ejs");
   }
 });
+
+
+
+
+
+/******************************************************************/
+/* Route voor wanneer een niet bestaande pagina wordt aangevraagd */
+/******************************************************************/
 
 // Error 404: ontbrekende pagina of onjuist pad
 app.get("/*", (req, res) => {
   res.status(404);
   res.render("error.ejs");
 });
+
+
+
+
+
+/**********************************************/
+/* Het prototype openzetten op localhost 3000 */
+/**********************************************/
 
 // Server open zetten op poort 3000
 app.listen(3000, () => {

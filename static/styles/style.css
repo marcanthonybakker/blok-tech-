@@ -309,9 +309,9 @@ footer p {
   font-size: 2em;
 }
 
-/**************/
+/******************/
 /* ingevuld & uit */
-/**************/
+/******************/
 
 .ingevuld {
   border: var(--green) solid 4px;
