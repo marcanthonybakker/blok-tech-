@@ -1,13 +1,15 @@
 // // Haal wachtwoorden en andere data uit de .env file
 require("dotenv").config();
 
-//-
+
+
 
 // MongoDB connectie test ruimte
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri = process.env.DB_PASSWORD;
 
-//-
+
+
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 console.log("uri: ", uri);
@@ -33,21 +35,26 @@ async function run() {
 }
 run().catch(console.dir);
 
-//-
+
+
 
 // Server express en ejs laten gebruiken
 const express = require("express");
 const app = express();
 const ejs = require("ejs");
 
+
+
+
 // collectie van de database aanroepen
 const collectionGebruikerData = client.db("bloktech").collection("gebruikersNaam");
 const collectionFormulierData = client.db("bloktech").collection("formulierDataCollectie");
 
-//-
+
+
 
 // Formulier gegevens naar de database sturen
-async function insertDataToDatabase(data) {
+async function stopDataInDatabase(data) {
   try {
     // Verbind met de database
     await client.connect();
@@ -60,19 +67,21 @@ async function insertDataToDatabase(data) {
     console.log("Gegevens zijn succesvol toegevoegd aan de database:", result.insertedId);
   } catch (err) {
     console.error("Fout bij het toevoegen van gegevens aan de database:", err);
-  } finally {
-    // Sluit de verbinding met de database
-    await client.close();
   }
 }
+
+
+
 
 // Variabelen om geposte gegevens op te slaan
 let plaatsData = "";
 let hobbyData = "";
 let datumData = "";
 let beschrijvingData = "";
+let gebruikerData = "";
 
-//-
+
+
 
 // Templating engine aanzetten met statische content en geposte data ophalen
 app.set("view engine", "ejs");
@@ -80,7 +89,9 @@ app.set("views", "views");
 app.use(express.static("static"));
 app.use(express.urlencoded({ extended: true }));
 
-//-
+
+
+
 
 // Formulier pagina https link
 app.get("/", async (req, res) => {
@@ -88,7 +99,8 @@ app.get("/", async (req, res) => {
   res.render("form.ejs", { gebruikerData });
 });
 
-//-
+
+
 
 // Formulier gegevens ophalen en doorsturen naar de database
 app.post('/berichten', async function(req, res) {
@@ -107,8 +119,7 @@ app.post('/berichten', async function(req, res) {
 
   try {
     // Gegevens naar de database sturen
-    await insertDataToDatabase(formulierData);
-
+    await stopDataInDatabase(formulierData);
     // Doorsturen naar /berichten
     res.redirect("/berichten");
   } catch (err) {
@@ -118,38 +129,70 @@ app.post('/berichten', async function(req, res) {
   }
 });
 
-//-
 
-// Berichten pagina https link
+
+
+// Laad de berichten pagina met de gegevens uit de database
 app.get("/berichten", async (req, res) => {
   try {
     const gebruikerData = await collectionGebruikerData.find({}).toArray();
-    res.render("berichten.ejs", { 
-      plaatsData,
-      hobbyData,
-      datumData,
-      beschrijvingData,
-      gebruikerData
-    });
+    const plaatsData = await collectionFormulierData.find({}).toArray();
+    const hobbyData = await collectionFormulierData.find({}).toArray();
+    const datumData = await collectionFormulierData.find({}).toArray();
+    const beschrijvingData = await collectionFormulierData.find({}).toArray();
+
+    if (
+      plaatsData.length === 0 ||
+      hobbyData.length === 0 ||
+      datumData.length === 0 ||
+      beschrijvingData.length === 0
+    ) {
+      // Genereer dummy data
+      const dummyData = {
+        gebruikerData: [{ gebruikerData: "" }],
+        plaatsData: [{ plaatsData: "Nog geen formulier ingevuld" }],
+        hobbyData: [{ hobbyData: "Nog geen formulier ingevuld" }],
+        datumData: [{ datumData: "Nog geen formulier ingevuld" }],
+        beschrijvingData: [{ beschrijvingData: "Nog geen formulier ingevuld" }],
+      };
+
+      // Geef de dummy data door aan de template
+      res.render("berichten.ejs", dummyData);
+    } else {
+      // Geef de opgehaalde gegevens door aan de template
+      res.render("berichten.ejs", {
+        gebruikerData,
+        plaatsData,
+        hobbyData,
+        datumData,
+        beschrijvingData,
+      });
+    }
   } catch (err) {
-    console.error("Fout bij het ophalen van formulier data", err);
+    console.error("Fout bij het ophalen van gegevens:", err);
+    res.render("error.ejs");
   }
 });
 
-//-
+
+
 
 // Data ophalen uit de database oefening
 app.get("/data", async (req, res) => {
   try {
     const gebruikerData = await collectionGebruikerData.find({}).toArray();
-    const formulierData = await collectionFormulierData.find({}).toArray();
-    res.render("data.ejs", { gebruikerData, plaatsData });
+    const plaatsData = await collectionFormulierData.find({}).toArray();
+    const hobbyData = await collectionFormulierData.find({}).toArray();
+    const datumData = await collectionFormulierData.find({}).toArray();
+    const beschrijvingData = await collectionFormulierData.find({}).toArray();
+    res.render("data.ejs", { gebruikerData, plaatsData, hobbyData, datumData, beschrijvingData });
   } catch (err) {
     console.error("Fout bij het ophalen van gegevens:", err);
   }
 });
 
-//-
+
+
 
 // Error 404: ontbrekende pagina of onjuist pad
 app.get("/*", (req, res) => {
@@ -157,7 +200,8 @@ app.get("/*", (req, res) => {
   res.render("error.ejs");
 })
 
-//-
+
+
 
 // Server open zetten op poort 3000
 app.listen(3000, () => {
