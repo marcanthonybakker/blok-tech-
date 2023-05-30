@@ -49,6 +49,7 @@ Dit project gebruikt een [Contributer Covenant](CODE_OF_CONDUCT.md) Code of Cond
 * Uitnodiging pagina: http://localhost:3000/
 * Berichten pagina: http://localhost:3000/berichten
 * 404 pagina voor niet bestaande pagina's: http://localhost:3000/etc
+* Met gebruikersnaam snel database formulier data bekijken http://localhost:3000/database/marc1234
 
 ## License
 
