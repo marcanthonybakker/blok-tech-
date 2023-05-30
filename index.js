@@ -20,7 +20,7 @@ const client = new MongoClient(uri, {
 });
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
+    // Connect the client to the server (optional starting in v4.7)
     await client.connect();
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
@@ -66,6 +66,11 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static("static"));
 app.use(express.urlencoded({ extended: true }));
+
+//Nep gebruikers voor route parameters
+const gebruikerParameter = [
+  { id: "marc1234"},
+];
 
 
 
@@ -182,14 +187,41 @@ app.get("/berichten", async (req, res) => {
 
 
 
-/******************************************************************/
-/* Route voor wanneer een niet bestaande pagina wordt aangevraagd */
-/******************************************************************/
+/****************************************************************************/
+/* Snelle manier om de formulieren data te bekijken via een ROUTE PARAMETER */
+/****************************************************************************/
+
+// Formulier pagina https link
+app.get("/database/:id", async (req, res) => {
+  const userId = req.params.id;
+  const gevondenGebruiker = gebruikerParameter.find(user => user.id === userId);
+
+  if (gevondenGebruiker) {
+    const collectionFormulierData = client.db("bloktech").collection("formulierDataCollectie");
+    const data = await collectionFormulierData.find({}).toArray();
+    res.send(data);
+  } else {
+    res.render("error.ejs");
+  }
+});
+
+
+
+
+
+/***************************************************************************************************************/
+/* Route voor wanneer een niet bestaande pagina wordt aangevraagd (404), of als de server iets fout doet (500) */
+/***************************************************************************************************************/
 
 // Error 404: ontbrekende pagina of onjuist pad
 app.get("/*", (req, res) => {
   res.status(404);
   res.render("error.ejs");
+});
+
+app.get("/error", (req, res) => {
+  res.status(500).send("Er is een interne serverfout opgetreden.");
+  res.render("errorServer.ejs");
 });
 
 
