@@ -1,15 +1,9 @@
-// // Haal wachtwoorden en andere data uit de .env file
+// Haal wachtwoorden en andere data uit de .env file
 require("dotenv").config();
-
-
-
 
 // MongoDB connectie test ruimte
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri = process.env.DB_PASSWORD;
-
-
-
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 console.log("uri: ", uri);
@@ -20,44 +14,32 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   },
 });
+
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
-    console.log(
-      "Pinged your deployment. You successfully connected to MongoDB!"
-    );
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
     console.log("DB werkt");
   }
 }
+
 run().catch(console.dir);
-
-
-
 
 // Server express en ejs laten gebruiken
 const express = require("express");
 const app = express();
 const ejs = require("ejs");
 
-
-
-
-// collectie van de database aanroepen
+// Collectie van de database aanroepen
 const collectionGebruikerData = client.db("bloktech").collection("gebruikersNaam");
 const collectionFormulierData = client.db("bloktech").collection("formulierDataCollectie");
 
-
-
-//Nep gebruikers voor route parameters
-const gebruikerParameter = [
-  { id: "marc1234"},
-];
-
-
+// Nep gebruikers voor route parameters
+const gebruikerParameter = [{ id: "marc1234" }];
 
 // Variabelen om geposte gegevens op te slaan
 let plaatsData = "";
@@ -65,7 +47,6 @@ let hobbyData = "";
 let datumData = "";
 let beschrijvingData = "";
 let gebruikerData = "";
-
 
 // Formulier gegevens naar de database sturen
 async function stopDataInDatabase(data) {
@@ -84,21 +65,11 @@ async function stopDataInDatabase(data) {
   }
 }
 
-
-
-
-
-
-
 // Templating engine aanzetten met statische content en geposte data ophalen
 app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static("static"));
 app.use(express.urlencoded({ extended: true }));
-
-
-
-
 
 // Formulier pagina https link
 app.get("/:id", async (req, res) => {
@@ -113,15 +84,11 @@ app.get("/:id", async (req, res) => {
   }
 });
 
-
-
-
-
 // Formulier gegevens ophalen en doorsturen naar de database
-app.post('/berichten', async function(req, res) {
+app.post("/berichten", async function (req, res) {
   plaatsData = req.body.plaats;
   hobbyData = req.body.hobbys;
-  datumData = req.body['trip-start'];
+  datumData = req.body["trip-start"];
   beschrijvingData = req.body.beschrijving;
 
   // Gegevens opslaan in een object
@@ -129,7 +96,7 @@ app.post('/berichten', async function(req, res) {
     plaatsData,
     hobbyData,
     datumData,
-    beschrijvingData
+    beschrijvingData,
   };
 
   try {
@@ -143,9 +110,6 @@ app.post('/berichten', async function(req, res) {
     res.render("error.ejs");
   }
 });
-
-
-
 
 // Laad de berichten pagina met de gegevens uit de database
 app.get("/berichten", async (req, res) => {
@@ -185,21 +149,15 @@ app.get("/berichten", async (req, res) => {
     }
   } catch (err) {
     console.error("Fout bij het ophalen van gegevens:", err);
+    res.render("error.ejs");
   }
 });
-
-
-
-
 
 // Error 404: ontbrekende pagina of onjuist pad
 app.get("/*", (req, res) => {
   res.status(404);
   res.render("error.ejs");
-})
-
-
-
+});
 
 // Server open zetten op poort 3000
 app.listen(3000, () => {
