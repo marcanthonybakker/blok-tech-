@@ -49,6 +49,7 @@ Dit project gebruikt een [Contributer Covenant](CODE_OF_CONDUCT.md) Code of Cond
 * Uitnodiging pagina: http://localhost:3000/
 * Berichten pagina: http://localhost:3000/berichten
 * 404 pagina voor niet bestaande pagina's: http://localhost:3000/etc
+* Met gebruikersnaam snel database formulier data bekijken http://localhost:3000/database/marc1234
 
 ## License
 
@@ -84,3 +85,6 @@ Gelicenseerd onder de [MIT-licentie](LICENSE.txt)
 * Geoapify GmbH. (2022, 22 december). Maps, APIs and components | Geoapify Location Platform. Geoapify. https://www.geoapify.com/
 * Reverse Geocoding  |  Maps JavaScript API  |  Google for Developers. (z.d.). Google for Developers. Geraadpleegd op 19 mei 2023, van https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
 * Contributor Covenant: (z.d.). Geraadpleegd op 23 mei 2023, van https://www.contributor-covenant.org/version/1/0/0/code-of-conduct/
+* Data Types — MongoDB Shell. (z.d.). Geraadpleegd op 30 mei 2023, van https://www.mongodb.com/docs/mongodb-shell/reference/data-types/
+* Wikipedia contributors. (2023). Query string. Wikipedia. https://en.wikipedia.org/wiki/Query_string
+* Route Parameters | Routing and Navigation | Vaadin Docs. (z.d.). Geraadpleegd op 30 mei 2023, van https://vaadin.com/docs/latest/routing/route-parameters
