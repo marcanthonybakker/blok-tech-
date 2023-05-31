@@ -88,3 +88,4 @@ Gelicenseerd onder de [MIT-licentie](LICENSE.txt)
 * Data Types — MongoDB Shell. (z.d.). Geraadpleegd op 30 mei 2023, van https://www.mongodb.com/docs/mongodb-shell/reference/data-types/
 * Wikipedia contributors. (2023). Query string. Wikipedia. https://en.wikipedia.org/wiki/Query_string
 * Route Parameters | Routing and Navigation | Vaadin Docs. (z.d.). Geraadpleegd op 30 mei 2023, van https://vaadin.com/docs/latest/routing/route-parameters
+* Autoprefixer CSS online. (z.d.). Geraadpleegd op 31 mei 2023, van https://autoprefixer.github.io/
