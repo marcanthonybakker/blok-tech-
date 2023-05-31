@@ -51,6 +51,14 @@ Dit project gebruikt een [Contributer Covenant](CODE_OF_CONDUCT.md) Code of Cond
 * 404 pagina voor niet bestaande pagina's: http://localhost:3000/etc
 * Met gebruikersnaam snel database formulier data bekijken http://localhost:3000/database/marc1234
 
+## Hoe is de browserondersteuning? Werkt de functie in alle browsers?
+Tot zo ver heb de de site op de volgende browser geprobeerd. Je moet alleen op jouw computer locatie aanzetten. En misschien ook per browser.
+Verder heb ik ook een prefixer over mijn CSS heen gegooid. Dit zorgt ervoor dat als sommige css features niet ondersteund zijn op bepaalde browsers, dat ze op een andere manier bijna het zelfde eruit zien.
+* ✅ Chrome, werkt 
+* ✅ Safari, werkt 
+* ✅ Firefox, werkt 
+* ✅ Opera, werkt 
+
 ## License
 
 Copyright (c) Marc Bakker. Alle rechten voorbehouden.
