@@ -1,3 +1,17 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* *************/
 /* Font */
 /**************/
@@ -9,7 +23,8 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: "poppings", sans-serif;
   margin: 0;
   padding: 0;
@@ -33,6 +48,7 @@ summary {
   --white: #ffffff;
   --green: #00d42e;
   --grey: #696969;
+  --red: #ff0000;
 }
 
 /**************/
@@ -60,8 +76,12 @@ input[type="file"] {
 /**************/
 
 header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   justify-items: baseline;
   background-color: var(--main);
   padding: 1em 2em 1em 2em;
@@ -96,8 +116,12 @@ legend {
 }
 
 .form main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .form main article {
@@ -124,8 +148,13 @@ legend {
 
 .form main section {
   margin: 2em 0em 0em 0em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .form main form {
@@ -134,8 +163,12 @@ legend {
 
 .form main div {
   margin-top: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .form main textarea {
@@ -145,8 +178,12 @@ legend {
 }
 
 .form main div:last-of-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .form main div:last-of-type > input {
@@ -193,10 +230,16 @@ input[type="date"] {
 /**************/
 
 .form input[type="text"]:hover,
+.form input[type="text"]:focus,
 .form select:hover,
+.form select:focus,
 .form input[type="date"]:hover,
-.form main textarea:hover {
+.form input[type="date"]:focus,
+.form main textarea:hover,
+.form main textarea:focus {
   border: var(--knop) solid 4px;
+  -webkit-transition: 150ms;
+  -o-transition: 150ms;
   transition: 150ms;
 }
 
@@ -209,8 +252,12 @@ header a:hover {
 /**************/
 
 .berichtenPagina main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .berichtenPagina article {
@@ -263,8 +310,12 @@ footer {
 }
 
 footer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   list-style-type: none;
   gap: 1em;
   color: var(--main);
@@ -281,10 +332,19 @@ footer p {
 /**************/
 
 .errorPagina {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 100vh;
 }
 
@@ -315,8 +375,21 @@ footer p {
 
 .ingevuld {
   border: var(--green) solid 4px;
+  -webkit-transition: 150ms;
+  -o-transition: 150ms;
+  transition: 150ms;
 }
 
 .uit {
   display: none;
+}
+
+/*****************************/
+/* geen geolocation fallback */
+/*****************************/
+
+fieldset>section>p {
+  margin-top: 0.5em;
+  font-size: 1.5em;
+  color: var(--red);
 }

@@ -7,15 +7,15 @@ console.log("script.js geladen");
 
 // Code voor geolocation API en reverse geocoding van Geoapify
 const apiKey = "15a0ff507ba54cdeaa2699add37a5999"; // API key van Geoapify
-const resultElement = document.getElementById("plaats");
-const getLocationBtn = document.getElementById("getLocationBtn");
+const resultaaatElement = document.getElementById("plaats");
+const locatieKnopId = document.getElementById("locatieKnopId");
 
 function getLocation() {
   if (navigator.geolocation) {
     // Check of geolocation beschikbaar is
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
   } else {
-    resultElement.value = "Geolocation is niet beschikbaar voor uw browser.";
+    resultaaatElement.value = "Geolocation is niet beschikbaar voor uw browser.";
   }
 }
 
@@ -31,19 +31,19 @@ function onSuccess(position) {
     .then((data) => {
       // Data van reverse geocoding
       const address = data.features[0].properties.formatted;
-      resultElement.value = address;
+      resultaaatElement.value = address;
     })
     .catch((error) => {
       // Error handling voor reverse geocoding
       console.log("Error getting reverse geocoding data:", error);
-      resultElement.value =
+      resultaaatElement.value =
         "Kon het adres niet vinden. Er is een fout opgetreden.";
     });
 }
 
 // Error handling voor geolocation
 function onError(error) {
-  resultElement.value =
+  resultaaatElement.value =
     "Error opgelopen met het opladen van uw locatie: " + error.message;
 }
 
@@ -52,7 +52,7 @@ function onError(error) {
 /**********************************************/
 
 // Event listener voor de gebruik huidige locatie knop
-getLocationBtn.addEventListener("click", getLocation);
+locatieKnopId.addEventListener("click", getLocation);
 
 // Dom elementen selecteren
 const submitButton = document.querySelector(
@@ -121,3 +121,13 @@ beschrijvingInput.addEventListener("focus", () => {
   beschrijvingAan = true;
   checkSubmitButton();
 });
+
+// css fallback voor geolocation, stop met het hiden van een waarschuwing blok
+const jsCheck = 1;
+const geenGeolocatieWaarschuwing = document.querySelector("fieldset>section>p");
+const locatieKnopSelector = document.querySelector("fieldset>section>button");
+
+if (jsCheck == 1) {
+  geenGeolocatieWaarschuwing.classList.add("uit");
+  locatieKnopSelector.classList.remove("uit");
+}
