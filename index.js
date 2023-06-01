@@ -219,7 +219,7 @@ app.get("/*", (req, res) => {
   res.render("error.ejs");
 });
 
-app.get("/error", (req, res) => {
+app.get("/*", (req, res) => {
   res.status(500).send("Er is een interne serverfout opgetreden.");
   res.render("errorServer.ejs");
 });
